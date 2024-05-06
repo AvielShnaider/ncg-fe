@@ -1,0 +1,35 @@
+.textarea-div {
+  width: 100%;
+}
+
+/* .text-finished {
+} */
+
+.vImage {
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  text-align: center;
+}
+
+.continer {
+  justify-content: center;
+  align-items: center;
+}
+
+.p-div {
+  height: 30%;
+  text-align: center;
+}
+
+.main-div {
+  text-align: center;
+}
+
+/* textarea {
+  width: 500px;
+} */

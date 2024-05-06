@@ -1,0 +1,172 @@
+#root {
+  text-align: center;
+}
+
+.app {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+temp-continer {
+  width: 350px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.header-form {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.header-form > * {
+  margin-left: 2%;
+}
+
+.input-rows > * {
+  margin-left: 2%;
+}
+.input-rows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.input-values > * {
+  margin-left: 30%;
+}
+
+.moves-continer {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.moves-continer > * {
+  margin-left: 2%;
+}
+textarea {
+  resize: none;
+}
+.flex-continer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.inputChanges {
+  align-self: start;
+  text-align: right;
+  height: 100px;
+}
+.down-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.continer-sig {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vImage {
+  width: 100px;
+  height: 100px;
+}
+p {
+  font-size: 0.9rem;
+}
+h3 {
+  font-size: 0.9rem;
+}
+h4 {
+  font-size: 0.7rem;
+}
+h5 {
+  font-size: 0.6rem;
+}
+
+.big-continer {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* .changes {
+    align-self: start;
+  } */
+
+@media (max-width: 500px) {
+  .big-continer {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .vImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .temp-continer {
+    width: 350px;
+    height: 150px;
+    /* margin: 0 auto; */
+  }
+
+  .header-form {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+  .flex-continer {
+    width: 350px;
+    height: 150px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  input {
+    width: 80px;
+  }
+
+  .flex-continer > * {
+    margin-left: 5%;
+  }
+  .changes-input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .inputChanges {
+    align-self: start;
+    text-align: right;
+    height: 90px;
+    width: 200px;
+  }
+
+  .signeture-padding {
+    width: 200px;
+    height: 80px;
+  }
+
+  .signature-pad {
+    width: 200px;
+    height: 80px;
+  }
+  .textarea-name {
+    height: 120px;
+    width: 150px;
+  }
+}

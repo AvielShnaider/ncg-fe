@@ -23,9 +23,10 @@ function Validation() {
   const signatureRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState();
 
+  const [envURL, setEnvURL] = useState();
+
   const convertToPdf = () => {
     const content = contentRef.current;
-
     const options = {
       filename: "my-document.pdf",
       margin: 1,
@@ -45,8 +46,9 @@ function Validation() {
     const send = {
       number: count + 1,
     };
-    axios
-      .post("http://localhost:4000/submit-recipt", send)
+    axios;
+    // .post("http://localhost:4000/submit-recipt", send)
+    post("https://nrg-center.co.il:4000/submit-recipt", send)
       .then((response) => {
         console.log(response);
       })
@@ -56,12 +58,27 @@ function Validation() {
   };
 
   useEffect(() => {
+    const env = import.meta.env;
+    // const apiUrl =
+    //   process.env.NODE_ENV === "development"
+    //     ? process.env.REACT_APP_API_URL_LOCAL
+    //     : process.env.REACT_APP_API_URL_PROD;
+    const apiUrl =
+      env.MODE === "development"
+        ? import.meta.env.VITE_APP_LOCAL_URL
+        : import.meta.env.VITE_APP_URL_PROD;
+
+    setEnvURL(apiUrl);
     //need to work on that
-    axios.get("http://localhost:4000/get-number").then((response) => {
-      console.log(response);
-      setCount(response.data);
+
+    axios.get(":4000/get-number").then((response) => {
+      // axios.get("https://nrg-center.co.il:4000/get-number").then((response) => {
+      //   console.log(response);
+      //   setCount(response.data);
     });
-    console.log(count);
+    // console.log(count);
+
+    console.log(import.meta.env.VITE_APP);
   }, []);
 
   // download to pdf as a4 , and writing to the server that saves the number of recipts

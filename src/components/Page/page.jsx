@@ -3,7 +3,7 @@ import React from "react";
 import { useRef, useState } from "react";
 import "./page.css";
 import html2pdf from "html2pdf.js";
-import logoNRG from "/Users/maorlevi/Desktop/Project code/react-app/logo rng_.png";
+import logo from "../../assets/logo rng_.png";
 
 const Page = () => {
   const [text, setText] = useState("");
@@ -44,7 +44,7 @@ const Page = () => {
   return (
     <div className="main-div" ref={contentRef}>
       <div className="continer">
-        <img className="vImage" src={logoNRG} />
+        <img className="vImage" src={logo} />
 
         {saved ? (
           <div className="text-finished ">

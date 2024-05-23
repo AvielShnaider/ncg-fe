@@ -5,7 +5,7 @@ import html2pdf from "html2pdf.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import axios from "axios";
-import logoNRG from "/Users/maorlevi/Desktop/Project code/react-app/logo rng_.png";
+import logo from "../../assets/logo rng_.png";
 
 import "./validation.css";
 
@@ -59,68 +59,21 @@ function Validation() {
 
   useEffect(() => {
     const env = import.meta.env;
-    // const apiUrl =
-    //   process.env.NODE_ENV === "development"
-    //     ? process.env.REACT_APP_API_URL_LOCAL
-    //     : process.env.REACT_APP_API_URL_PROD;
     const apiUrl =
       env.MODE === "development"
         ? import.meta.env.VITE_APP_LOCAL_URL
         : import.meta.env.VITE_APP_URL_PROD;
 
     setEnvURL(apiUrl);
-    //need to work on that
 
-    axios.get(":4000/get-number").then((response) => {
-      // axios.get("https://nrg-center.co.il:4000/get-number").then((response) => {
-      //   console.log(response);
-      //   setCount(response.data);
-    });
-    // console.log(count);
-
+    axios.get(":4000/get-number");
     console.log(import.meta.env.VITE_APP);
   }, []);
-
-  // download to pdf as a4 , and writing to the server that saves the number of recipts
-  // const downloadPDF = () => {
-  //   const capture = document.querySelector(".App");
-  //   console.log(capture);
-
-  //   html2canvas(capture).then((canvas) => {
-  //     const imgData = canvas.toDataURL("img/png");
-
-  //     const doc = new jsPDF("p", "mm", "a4");
-  //     const componentWidth = doc.internal.pageSize.getWidth();
-  //     const componentHeight = doc.internal.pageSize.getHeight();
-  //     console.log(componentWidth, componentHeight);
-
-  //     doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
-
-  //     const textareaText = document.getElementById("persoInput").value;
-  //     console.log(textareaText);
-
-  //     // Save the PDF
-  //     doc.save("receipt.pdf");
-  //   });
-  //   const send = {
-  //     number: count + 1,
-  //   };
-  // };
-  // axios
-  //   .post("http://localhost:4000/submit-recipt", send)
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-
-  // const number = count;
 
   return (
     <div className="App" content="width=device-width, initial-scale=1">
       <div className="big-continer" ref={contentRef}>
-        <img className="vImage" src={logoNRG} />
+        <img className="vImage" src={logo} />
         <h3>טופס אישור תקינות מס ׳ {count} </h3>
         <div className="temp-continer">
           <div className="header-form">
@@ -226,26 +179,14 @@ function Validation() {
             <div className="moves-continer">
               <h5>הזזות</h5>
 
-              <input
-                type="text"
-                className="form-control"
-                // value={hangMoves}
-                // onChange={(e) => setHangMoves(e.target.value)}
-                dir="rtl"
-              ></input>
+              <input type="text" className="form-control" dir="rtl"></input>
 
               <h5> ספרינקלר תלוי בוצע</h5>
             </div>
 
             <div className="moves-continer">
               <h5>הזזות</h5>
-              <input
-                type="text"
-                className="form-control"
-                dir="rtl"
-                // value={sideMoves}
-                // onChange={(e) => setSideMoves(e.target.value)}
-              ></input>
+              <input type="text" className="form-control" dir="rtl"></input>
               <h5> ספרינקלר צד בוצע</h5>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import SignatureCanvas from "react-signature-canvas";
-
+import { supabase } from "../../supabase";
 import html2pdf from "html2pdf.js";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -22,8 +22,57 @@ function Validation() {
   const [textAreaChanges, setTextChanges] = useState("");
   const signatureRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState();
+  const [counter, setCounter] = useState(0);
 
   const [envURL, setEnvURL] = useState();
+
+  const fetchCounter = async () => {
+    const { data, error } = await supabase
+      .from("counter")
+      .select("value")
+      .maybeSingle(); // Change to maybeSingle() to avoid errors if no rows or multiple rows are found
+
+    if (error) {
+      console.error("Error fetching counter:", error);
+    } else if (data) {
+      setCounter(data.value);
+    } else {
+      // Handle cases where no data is returned
+      console.log(
+        "No counter data found. Setting counter to default value of 0."
+      );
+      setCounter(0);
+    }
+  };
+
+  const incrementCounter = async () => {
+    // Fetch the current counter value
+    const { data: currentData, error: fetchError } = await supabase
+      .from("counter")
+      .select("value")
+      .eq("id", 1)
+      .single();
+
+    if (fetchError) {
+      console.error("Error fetching counter:", fetchError);
+      return;
+    }
+
+    // Increment the counter value
+    const newValue = currentData.value + 1;
+
+    // Update the counter in the database
+    const { data, error } = await supabase
+      .from("counter")
+      .update({ value: newValue })
+      .eq("id", 1);
+
+    if (error) {
+      console.error("Error updating counter:", error);
+    } else {
+      console.log("Counter incremented:", data);
+    }
+  };
 
   const convertToPdf = () => {
     const content = contentRef.current;
@@ -46,15 +95,10 @@ function Validation() {
     const send = {
       number: count + 1,
     };
-    axios;
-    // .post("http://localhost:4000/submit-recipt", send)
-    post("https://nrg-center.co.il:4000/submit-recipt", send)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    incrementCounter().then(() => {
+      fetchCounter();
+    });
   };
 
   useEffect(() => {
@@ -66,15 +110,14 @@ function Validation() {
 
     setEnvURL(apiUrl);
 
-    axios.get(":4000/get-number");
-    console.log(import.meta.env.VITE_APP);
+    fetchCounter();
   }, []);
 
   return (
     <div className="App" content="width=device-width, initial-scale=1">
       <div className="big-continer" ref={contentRef}>
         <img className="vImage" src={logo} />
-        <h3>טופס אישור תקינות מס ׳ {count} </h3>
+        <h3>טופס אישור תקינות מס ׳ {counter} </h3>
         <div className="temp-continer">
           <div className="header-form">
             <div

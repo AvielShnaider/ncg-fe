@@ -31,7 +31,7 @@ const Page = () => {
       filename: "my-document.pdf",
       margin: 1,
       image: { type: "jpeg" },
-      html2canvas: { scale: 20 },
+      html2canvas: { scale: 4},
       jsPDF: {
         unit: "in",
         format: "a4",

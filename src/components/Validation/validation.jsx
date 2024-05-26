@@ -81,7 +81,7 @@ function Validation() {
       margin: 1,
       textAlign: "center",
       image: { type: "jpeg" },
-      html2canvas: { scale: 10 },
+      html2canvas: { scale: 4 },
       jsPDF: {
         unit: "mm",
         format: "a4",

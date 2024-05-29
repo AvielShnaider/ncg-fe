@@ -50,7 +50,7 @@ function Validation() {
     const { data: currentData, error: fetchError } = await supabase
       .from("counter")
       .select("value")
-      .eq("id", 1)
+      .eq("mis", 1)
       .single();
 
     if (fetchError) {
@@ -65,7 +65,7 @@ function Validation() {
     const { data, error } = await supabase
       .from("counter")
       .update({ value: newValue })
-      .eq("id", 1);
+      .eq("mis", 1);
 
     if (error) {
       console.error("Error updating counter:", error);

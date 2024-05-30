@@ -13,13 +13,15 @@ function Validation() {
   const [loader, setLoader] = useState(false);
   const contentRef = useRef(null);
   const [count, setCount] = useState();
-  const [person, setPerson] = useState("");
-  const [hangMoves, setHangMoves] = useState("");
-  const [sideMoves, setSideMoves] = useState("");
-  const [changes, setChanges] = useState("");
+  const [flagDate, setFlagDate] = useState(false);
+  const [date, SetDate] = useState("");
+  // const [person, setPerson] = useState("");
+  // const [hangMoves, setHangMoves] = useState("");
+  // const [sideMoves, setSideMoves] = useState("");
+  // const [changes, setChanges] = useState("");
   const [sign, setSign] = useState();
-  const [textAreaName, setTextName] = useState("");
-  const [textAreaChanges, setTextChanges] = useState("");
+  // const [textAreaName, setTextName] = useState("");
+  // const [textAreaChanges, setTextChanges] = useState("");
   const signatureRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState();
   const [counter, setCounter] = useState(0);
@@ -74,10 +76,19 @@ function Validation() {
     }
   };
 
+  const formatDate = (dateString) => {
+    const options = { day: "2-digit", month: "2-digit", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-GB", options);
+  };
+
   const convertToPdf = () => {
+    const formattedDate = formatDate(selectedDate);
+    setFlagDate(true);
+    SetDate(formattedDate);
+
     const content = contentRef.current;
     const options = {
-      filename: "my-document.pdf",
+      filename: "nrg-center-recipt.pdf",
       margin: 1,
       textAlign: "center",
       image: { type: "jpeg" },
@@ -120,23 +131,48 @@ function Validation() {
         <h3>טופס אישור תקינות מס ׳ {counter} </h3>
         <div className="temp-continer">
           <div className="header-form">
-            <div
-              className="date-div"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <h4>בחרו תאריך</h4>
-              <input
-                className="input-name"
-                type="date"
-                value={selectedDate}
-                style={{ width: "150px", textAlign: "center", height: "50px" }}
-                onChange={(e) => setSelectedDate(e.target.value)}
-              />
-            </div>
+            {flagDate ? (
+              <div
+                className="date-div"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <h4>בחרו תאריך</h4>
+                <h4
+                  style={{
+                    fontSize: "15px",
+                    textAlign: "center",
+                  }}
+                >
+                  {date}
+                </h4>
+              </div>
+            ) : (
+              <div
+                className="date-div"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <h4>בחרו תאריך</h4>
+                <input
+                  className="input-name"
+                  type="date"
+                  value={selectedDate}
+                  style={{
+                    width: "150px",
+                    textAlign: "center",
+                    height: "50px",
+                  }}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                />
+              </div>
+            )}
 
             <div
               className="input-values"
@@ -148,10 +184,9 @@ function Validation() {
             >
               <div className="moves-continer">
                 <input
+                  style={{ textAlign: "center" }}
                   type="text"
                   className="form-control"
-                  // value={hangMoves}
-                  // onChange={(e) => setHangMoves(e.target.value)}
                   dir="rtl"
                 ></input>
                 <h5>שם מלא</h5>
@@ -159,23 +194,21 @@ function Validation() {
 
               <div className="moves-continer">
                 <input
+                  style={{ textAlign: "center" }}
                   type="text"
                   className="form-control"
                   dir="rtl"
-                  // value={sideMoves}
-                  // onChange={(e) => setSideMoves(e.target.value)}
                 ></input>
                 <h5>כתובת</h5>
               </div>
               <div className="moves-continer">
                 <input
+                  style={{ textAlign: "center" }}
                   type="text"
                   className="form-control"
                   dir="rtl"
-                  // value={sideMoves}
-                  // onChange={(e) => setSideMoves(e.target.value)}
                 ></input>
-                <h5>חברה </h5>
+                <h5>דירה</h5>
               </div>
             </div>
           </div>
@@ -204,9 +237,7 @@ function Validation() {
               className="inputChanges"
               dir="rtl"
               id="persoInput"
-              style={{ fontSize: "0.7rem" }}
-              // value={changes}
-              // onChange={(e) => setChanges(e.target.value)}
+              style={{ fontSize: "0.7rem", textAlign: "center" }}
             ></input>
           </div>
 
@@ -222,14 +253,24 @@ function Validation() {
             <div className="moves-continer">
               <h5>הזזות</h5>
 
-              <input type="text" className="form-control" dir="rtl"></input>
+              <input
+                style={{ fontSize: "0.7rem", textAlign: "center" }}
+                type="text"
+                className="sprinkel-input"
+                dir="rtl"
+              ></input>
 
               <h5> ספרינקלר תלוי בוצע</h5>
             </div>
 
             <div className="moves-continer">
               <h5>הזזות</h5>
-              <input type="text" className="form-control" dir="rtl"></input>
+              <input
+                type="text"
+                style={{ fontSize: "0.7rem", textAlign: "center" }}
+                className="sprinkel-input"
+                dir="rtl"
+              ></input>
               <h5> ספרינקלר צד בוצע</h5>
             </div>
           </div>
@@ -238,7 +279,9 @@ function Validation() {
           <select
             style={{
               width: "100px",
+              textAlign: "center",
             }}
+            dir="rtl"
           >
             <option value="ron">רון גרגי</option>
             <option value="ofek">אופק גרגי</option>
@@ -281,16 +324,16 @@ function Validation() {
           בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי תקן
           129/1
           <br></br>
-          (NFPA 25 ) בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי
-          תקן 1928
+          (NFPA 25) בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי תקן
+          1928
           <br></br>
           בודק מוסמך למז׳׳ח מטעם משרד הבריאות מ׳ס היתר 2108
         </p>
         <h4>ממונה בטיחות אש בכיר</h4>
         <h3>מערכת כיבוי במים (ספרינקלרים) *מז׳׳ח* אספקת ציוד כיבוי אש </h3>
         <h4>
-          nrg@nrg-center.com : רח׳ גזית 9 * טלפון 03-9040844 * פקס 03-9041940 *
-          דוא׳׳ל
+          info@nrg-center.co.il : רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס
+          03-9041940 * דוא׳׳ל
         </h4>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Page = () => {
 
   const changeText = () => {
     // const tempText = document.getElementById("textarea").value;
-    const sentences = text.split(".");
+    const sentences = text.split(",");
     const processedText = sentences.map((sentence, index) => (
       <p key={index}>{sentence}</p>
     ));
@@ -28,10 +28,10 @@ const Page = () => {
 
     const content = contentRef.current;
     const options = {
-      filename: "my-document.pdf",
+      filename: "nrg-center.pdf",
       margin: 1,
       image: { type: "jpeg" },
-      html2canvas: { scale: 4},
+      html2canvas: { scale: 4 },
       jsPDF: {
         unit: "in",
         format: "a4",
@@ -80,8 +80,8 @@ const Page = () => {
           <h4>ממונה בטיחות אש בכיר</h4>
           <h3>מערכת כיבוי במים (ספרינקלרים) *מז׳׳ח* אספקת ציוד כיבוי אש </h3>
           <h4>
-            nrg@nrg-center.com : רח׳ גזית 9 * טלפון 03-9040844 * פקס 03-9041940
-            * דוא׳׳ל
+            info@nrg-center.co.il : רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 *
+            פקס 03-9041940 * דוא׳׳ל
           </h4>
         </div>
       </div>

@@ -142,6 +142,8 @@ h5 {
   }
   input {
     width: 80px;
+    height: 30px;
+    font-size: 0.8rem;
   }
 
   .flex-continer > * {

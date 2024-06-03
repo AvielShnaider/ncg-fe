@@ -125,7 +125,15 @@ function Validation() {
   }, []);
 
   return (
-    <div className="App" content="width=device-width, initial-scale=1">
+    <div
+      className="App"
+      meta="UTF-8"
+      content="width=device-width, initial-scale=1"
+    >
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      ></link>
       <div className="big-continer" ref={contentRef}>
         <img className="vImage" src={logo} />
         <h3>טופס אישור תקינות מס ׳ {counter} </h3>
@@ -324,8 +332,8 @@ function Validation() {
           בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי תקן
           129/1
           <br></br>
-          (NFPA 25) בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי תקן
-          1928
+          בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי תקן 1928(NFPA
+          25)
           <br></br>
           בודק מוסמך למז׳׳ח מטעם משרד הבריאות מ׳ס היתר 2108
         </p>

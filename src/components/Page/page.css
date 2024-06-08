@@ -2,8 +2,11 @@
   width: 100%;
 }
 
-/* .text-finished {
-} */
+.text-finished {
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
 
 .vImage {
   width: 300px;

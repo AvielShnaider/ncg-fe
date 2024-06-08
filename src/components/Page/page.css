@@ -5,7 +5,7 @@
 .text-finished {
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 300px;
 }
 
 .vImage {
@@ -25,13 +25,17 @@
   border: 2px solid black;
 }
 
-.p-div {
+/* .p-div {
   height: 30%;
   text-align: center;
-}
+} */
 
 .main-div {
   text-align: center;
+}
+
+p {
+  font-size: 1rem;
 }
 
 /* textarea {

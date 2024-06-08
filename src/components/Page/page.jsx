@@ -13,7 +13,7 @@ const Page = () => {
 
   const changeText = () => {
     // const tempText = document.getElementById("textarea").value;
-    const sentences = text.split(",");
+    const sentences = text.split("?");
     const processedText = sentences.map((sentence, index) => (
       <p key={index}>{sentence}</p>
     ));
@@ -48,7 +48,7 @@ const Page = () => {
 
         {saved ? (
           <div className="text-finished ">
-            <p>{addonText}</p>
+            <p dir="rtl">{addonText} </p>
           </div>
         ) : (
           <div className="textarea-div ">
@@ -81,7 +81,7 @@ const Page = () => {
           <h3 dir="rtl">
             מערכת כיבוי במים (ספרינקלרים) *מזח * אספקת ציוד כיבוי אש{" "}
           </h3>
-          <h4 dir="rtl">
+          <h4 dir="ltr">
             info@nrg-center.co.il : רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 *
             פקס 03-9041940 * דוא׳׳ל
           </h4>

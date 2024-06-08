@@ -84,7 +84,7 @@ function Validation() {
   const convertToPdf = async () => {
     await incrementCounter();
 
-    fetchCounter();
+    await fetchCounter();
 
     const formattedDate = formatDate(selectedDate);
     setFlagDate(true);

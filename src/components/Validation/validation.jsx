@@ -82,6 +82,10 @@ function Validation() {
   };
 
   const convertToPdf = () => {
+    incrementCounter().then(() => {
+      fetchCounter();
+    });
+
     const formattedDate = formatDate(selectedDate);
     setFlagDate(true);
     SetDate(formattedDate);
@@ -106,10 +110,6 @@ function Validation() {
     const send = {
       number: count + 1,
     };
-
-    incrementCounter().then(() => {
-      fetchCounter();
-    });
   };
 
   useEffect(() => {

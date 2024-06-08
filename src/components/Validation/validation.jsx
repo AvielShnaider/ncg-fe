@@ -81,10 +81,10 @@ function Validation() {
     return new Date(dateString).toLocaleDateString("en-GB", options);
   };
 
-  const convertToPdf = () => {
-    incrementCounter().then(() => {
-      fetchCounter();
-    });
+  const convertToPdf = async () => {
+    await incrementCounter();
+
+    fetchCounter();
 
     const formattedDate = formatDate(selectedDate);
     setFlagDate(true);

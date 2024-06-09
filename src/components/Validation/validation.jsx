@@ -95,8 +95,8 @@ function Validation() {
       filename: "nrg-center-recipt.pdf",
       margin: 1,
       textAlign: "center",
-      image: { type: "jpeg" },
-      html2canvas: { scale: 4 },
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: window.devicePixelRatio, useCORS: true },
       jsPDF: {
         unit: "mm",
         format: "a4",
@@ -148,7 +148,7 @@ function Validation() {
                   alignItems: "center",
                 }}
               >
-                <h4>בחרו תאריך</h4>
+                <h4>תאריך</h4>
                 <h4
                   style={{
                     fontSize: "15px",
@@ -341,9 +341,9 @@ function Validation() {
         <h3 dir="rtl">
           מערכת כיבוי במים (ספרינקלרים) *מזח * אספקת ציוד כיבוי אש{" "}
         </h3>
-        <h4 dir="ltr">
-          info@nrg-center.co.il : רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס
-          03-9041940 * דוא׳׳ל
+        <h4 dir="rtl">
+          רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס * 03-9041940 דוא׳׳ל
+          info@nrg-center.co.il
         </h4>
       </div>
     </div>

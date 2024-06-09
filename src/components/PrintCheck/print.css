@@ -1,8 +1,0 @@
-@media print {
-  #content {
-    width: 210mm;
-    height: 297mm;
-    /* Add more styles as needed to fit your content to A4 */
-    text-align: center;
-  }
-}

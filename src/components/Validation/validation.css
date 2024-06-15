@@ -15,6 +15,7 @@
 temp-continer {
   width: 350px;
   height: 150px;
+  margin-bottom: 50px;
   margin: 0 auto;
 }
 
@@ -27,7 +28,7 @@ temp-continer {
 }
 
 .header-form > * {
-  margin-left: 2%;
+  margin-left: 1%;
 }
 .sprinkel-input {
   width: 50px;
@@ -111,10 +112,8 @@ h5 {
   } */
 
 @media (max-width: 500px) {
-  .big-continer {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  .text-continer {
+    margin-bottom: 100px;
   }
 
   .vImage {
@@ -122,26 +121,15 @@ h5 {
     height: 100px;
   }
 
-  .temp-continer {
-    width: 350px;
-    height: 200px;
-    /* margin: 0 auto; */
-  }
-
   .header-form {
     flex-direction: row;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
   }
-  p {
-    font-size: 1.3rem;
-  }
+
   .flex-continer {
-    width: 350px;
-    height: 150px;
-    margin: 0 auto;
+    margin-top: 50px;
     text-align: center;
   }
   input {
@@ -156,13 +144,27 @@ h5 {
   .changes-input {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
   }
   .inputChanges {
     align-self: start;
     text-align: right;
     height: 90px;
     width: 200px;
+  }
+  .big-continer > * {
+    margin-bottom: 15px;
+  }
+
+  .text {
+    height: 150px;
+    margin-top: 40px;
+  }
+
+  .text2 {
+    height: 200px;
+    font-size: 0.6rem;
+    margin-top: 18px;
   }
 
   .signeture-padding {
@@ -175,7 +177,10 @@ h5 {
     height: 80px;
   }
   .textarea-name {
-    height: 120px;
-    width: 150px;
+    flex-direction: column;
+    display: flex;
+  }
+  h5 {
+    font-size: 0.9rem;
   }
 }

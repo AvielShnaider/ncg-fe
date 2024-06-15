@@ -63,7 +63,7 @@ function Validation() {
     // Increment the counter value
     const newValue = currentData.value + 1;
 
-    // Update the counter in the database
+    //Update the counter in the database
     const { data, error } = await supabase
       .from("counter")
       .update({ value: newValue })
@@ -151,7 +151,7 @@ function Validation() {
                 <h4>תאריך</h4>
                 <h4
                   style={{
-                    fontSize: "15px",
+                    fontSize: "20px",
                     textAlign: "center",
                   }}
                 >
@@ -175,7 +175,7 @@ function Validation() {
                   style={{
                     width: "150px",
                     textAlign: "center",
-                    height: "50px",
+                    height: "70px",
                   }}
                   onChange={(e) => setSelectedDate(e.target.value)}
                 />
@@ -239,7 +239,7 @@ function Validation() {
               alignItems: "center",
             }}
           >
-            <h5 style={{}}>תסריט שינויים בדירה </h5>
+            <h5>תסריט שינויים בדירה </h5>
             <input
               type="text"
               className="inputChanges"
@@ -328,23 +328,23 @@ function Validation() {
         >
           {loader ? <span>יורד</span> : <span>שמור והורד </span>}
         </button>
-        <p dir="rtl">
-          בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי תקן
-          129/1
-          <br></br>
-          בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי תקן 1928(NFPA
-          25)
-          <br></br>
-          בודק מוסמך למז׳׳ח מטעם משרד הבריאות מ׳ס היתר 2108
-        </p>
-        <h4 dir="rtl">ממונה בטיחות אש בכיר</h4>
-        <h3 dir="rtl">
-          מערכת כיבוי במים (ספרינקלרים) *מזח * אספקת ציוד כיבוי אש{" "}
-        </h3>
-        <h4 dir="rtl">
-          רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס * 03-9041940 דוא׳׳ל
-          info@nrg-center.co.il
-        </h4>
+        <div className="text2">
+          <p dir="rtl">
+            בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי
+            תקן 129/1
+            <br></br>
+            בודק מוסמך מטעם מכון התקנים הישראלי מס׳ תעודה 25-649 לפי תקן
+            1928(NFPA 25)
+            <br></br>
+            בודק מוסמך למז׳׳ח מטעם משרד הבריאות מ׳ס היתר 2108
+          </p>
+          <h4>ממונה בטיחות אש בכיר</h4>
+          <h3>מערכת כיבוי במים (ספרינקלרים) *מזח * אספקת ציוד כיבוי אש </h3>
+          <h4 dir="rtl" style={{ fontSize: "0.6rem" }}>
+            רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס * 03-9041940 דוא׳׳ל
+            info@nrg-center.co.il
+          </h4>
+        </div>
       </div>
     </div>
   );

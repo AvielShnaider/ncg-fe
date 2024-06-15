@@ -1,6 +1,6 @@
 import Validation from "./components/Validation/validation";
+import Page from "./components/Page/page";
 
-import Print from "./components/PrintCheck/print";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/print" element={<Print />} />
+          <Route path="/page" element={<Page />} />
+
           <Route path="/" element={<Validation />} />
         </Routes>
       </BrowserRouter>

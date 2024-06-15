@@ -1,11 +1,8 @@
-.textarea-div {
-  width: 100%;
-}
-
-.text-finished {
-  justify-content: center;
-  align-items: center;
-  height: 300px;
+/* textarea {
+  width: 500px;
+} */
+#root {
+  text-align: center;
 }
 
 .vImage {
@@ -14,30 +11,59 @@
   justify-content: center;
   align-items: center;
 }
-
-#root {
+.main-div {
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .continer {
   justify-content: center;
   align-items: center;
+  text-align: center;
   border: 2px solid black;
 }
-
-/* .p-div {
-  height: 30%;
-  text-align: center;
-} */
-
+.text-finished {
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
 .main-div {
   text-align: center;
 }
 
-p {
-  font-size: 1rem;
+h1 {
+  font-size: 1.5rem;
 }
 
-/* textarea {
-  width: 500px;
-} */
+.textarea-div {
+  height: 580px;
+}
+
+.text2 {
+  height: 300px;
+}
+p {
+  font-size: 1.2rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+/* Media query for screens less than 500px */
+
+@media (max-width: 500px) {
+  h3 {
+    font-size: 0.8rem;
+  }
+  h4 {
+    font-size: 0.6rem;
+  }
+  .text2 {
+    margin-top: 80px;
+    height: 300px;
+  }
+}

@@ -239,7 +239,7 @@ function Validation() {
               alignItems: "center",
             }}
           >
-            <h5>תסריט שינויים בדירה </h5>
+            <h6>תסריט שינויים בדירה </h6>
             <input
               type="text"
               className="inputChanges"
@@ -259,7 +259,7 @@ function Validation() {
             }}
           >
             <div className="moves-continer">
-              <h5>הזזות</h5>
+              <h6>הזזות</h6>
 
               <input
                 style={{ fontSize: "0.7rem", textAlign: "center" }}
@@ -268,18 +268,18 @@ function Validation() {
                 dir="rtl"
               ></input>
 
-              <h5> ספרינקלר תלוי בוצע</h5>
+              <h6> ספרינקלר תלוי בוצע</h6>
             </div>
 
             <div className="moves-continer">
-              <h5>הזזות</h5>
+              <h6>הזזות</h6>
               <input
                 type="text"
                 style={{ fontSize: "0.7rem", textAlign: "center" }}
                 className="sprinkel-input"
                 dir="rtl"
               ></input>
-              <h5> ספרינקלר צד בוצע</h5>
+              <h6> ספרינקלר צד בוצע</h6>
             </div>
           </div>
         </div>

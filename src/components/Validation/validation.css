@@ -131,6 +131,7 @@ h5 {
   .flex-continer {
     margin-top: 50px;
     text-align: center;
+    width: 100%;
   }
   input {
     width: 80px;
@@ -180,7 +181,7 @@ h5 {
     flex-direction: column;
     display: flex;
   }
-  h5 {
-    font-size: 0.9rem;
+  h6 {
+    font-size: 0.6rem;
   }
 }

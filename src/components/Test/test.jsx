@@ -7,16 +7,19 @@ import jsPDF from "jspdf";
 import axios from "axios";
 import logo from "../../assets/logo rng_.png";
 
-import "./validation.css";
-
-function Validation() {
+function Test() {
   const [loader, setLoader] = useState(false);
   const contentRef = useRef(null);
-  const [saved, setSaved] = useState(false);
   const [count, setCount] = useState();
   const [flagDate, setFlagDate] = useState(false);
   const [date, SetDate] = useState("");
+  // const [person, setPerson] = useState("");
+  // const [hangMoves, setHangMoves] = useState("");
+  // const [sideMoves, setSideMoves] = useState("");
+  // const [changes, setChanges] = useState("");
   const [sign, setSign] = useState();
+  // const [textAreaName, setTextName] = useState("");
+  // const [textAreaChanges, setTextChanges] = useState("");
   const signatureRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState();
   const [counter, setCounter] = useState(0);
@@ -42,34 +45,34 @@ function Validation() {
     }
   };
 
-  const incrementCounter = async () => {
-    // Fetch the current counter value
-    const { data: currentData, error: fetchError } = await supabase
-      .from("counter")
-      .select("value")
-      .eq("mis", 1)
-      .single();
+  // const incrementCounter = async () => {
+  //   // Fetch the current counter value
+  //   const { data: currentData, error: fetchError } = await supabase
+  //     .from("counter")
+  //     .select("value")
+  //     .eq("mis", 1)
+  //     .single();
 
-    if (fetchError) {
-      console.error("Error fetching counter:", fetchError);
-      return;
-    }
+  //   if (fetchError) {
+  //     console.error("Error fetching counter:", fetchError);
+  //     return;
+  //   }
 
-    // Increment the counter value
-    const newValue = currentData.value + 1;
+  //   // Increment the counter value
+  //   const newValue = currentData.value + 1;
 
-    // Update the counter in the database
-    const { data, error } = await supabase
-      .from("counter")
-      .update({ value: newValue })
-      .eq("mis", 1);
+  //   //Update the counter in the database
+  //   const { data, error } = await supabase
+  //     .from("counter")
+  //     .update({ value: newValue })
+  //     .eq("mis", 1);
 
-    if (error) {
-      console.error("Error updating counter:", error);
-    } else {
-      console.log("Counter incremented:", data);
-    }
-  };
+  //   if (error) {
+  //     console.error("Error updating counter:", error);
+  //   } else {
+  //     console.log("Counter incremented:", data);
+  //   }
+  // };
 
   const formatDate = (dateString) => {
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
@@ -78,25 +81,20 @@ function Validation() {
 
   const convertToPdf = async () => {
     await incrementCounter();
-    await fetchCounter();
 
-    setSaved(true);
+    await fetchCounter();
 
     const formattedDate = formatDate(selectedDate);
     setFlagDate(true);
     SetDate(formattedDate);
-    var elements = document.querySelectorAll("#textSized");
-    elements.forEach(function (element) {
-      element.style.fontSize = "1.2rem"; // Change this value to the desired font size
-    });
 
     const content = contentRef.current;
     const options = {
       filename: "nrg-center-recipt.pdf",
       margin: 1,
       textAlign: "center",
-      image: { type: "jpeg" },
-      html2canvas: { scale: 4 },
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: window.devicePixelRatio, useCORS: true },
       jsPDF: {
         unit: "mm",
         format: "a4",
@@ -148,10 +146,9 @@ function Validation() {
                   alignItems: "center",
                 }}
               >
-                <h4>בחרו תאריך</h4>
+                <h4>תאריך</h4>
                 <h4
                   style={{
-                    fontSize: "15px",
                     textAlign: "center",
                   }}
                 >
@@ -175,7 +172,7 @@ function Validation() {
                   style={{
                     width: "150px",
                     textAlign: "center",
-                    height: "50px",
+                    height: "70px",
                   }}
                   onChange={(e) => setSelectedDate(e.target.value)}
                 />
@@ -221,18 +218,14 @@ function Validation() {
             </div>
           </div>
         </div>
-        <div className="text">
-          <h4 id="textSized">
-            הנדון : אישור תקינות למערכת הספרינקלרים הדירתית
-          </h4>
-          <p id="textSized">
-            הריני לאשר כי נבדקה מערכת הספרינקלרים הדירתית ונמצאה תקינה
-          </p>
-          <p id="textSized">
+        <div className="text-upper">
+          <h4>הנדון : אישור תקינות למערכת הספרינקלרים הדירתית</h4>
+          <p>הריני לאשר כי נבדקה מערכת הספרינקלרים הדירתית ונמצאה תקינה</p>
+          <p>
             הבדיקה תקינה לדירה בלבד ולא כוללת בדיקת מערכת הספרינקלרים בבניין
           </p>
-          <p id="textSized">. תקינות הבדיקה היא ליום הבדיקה בלבד</p>
-          <p id="textSized"> .אישור זה בתוקף לשנה </p>
+          <p>. תקינות הבדיקה היא ליום הבדיקה בלבד</p>
+          <p> .אישור זה בתוקף לשנה </p>
         </div>
         <div className="flex-continer">
           <div
@@ -243,7 +236,7 @@ function Validation() {
               alignItems: "center",
             }}
           >
-            <h5 style={{}}>תסריט שינויים בדירה </h5>
+            <h6>תסריט שינויים בדירה </h6>
             <input
               type="text"
               className="inputChanges"
@@ -263,7 +256,7 @@ function Validation() {
             }}
           >
             <div className="moves-continer">
-              <h5>הזזות</h5>
+              <h6>הזזות</h6>
 
               <input
                 style={{ fontSize: "0.7rem", textAlign: "center" }}
@@ -272,18 +265,18 @@ function Validation() {
                 dir="rtl"
               ></input>
 
-              <h5> ספרינקלר תלוי בוצע</h5>
+              <h6> ספרינקלר תלוי בוצע</h6>
             </div>
 
             <div className="moves-continer">
-              <h5>הזזות</h5>
+              <h6>הזזות</h6>
               <input
                 type="text"
                 style={{ fontSize: "0.7rem", textAlign: "center" }}
                 className="sprinkel-input"
                 dir="rtl"
               ></input>
-              <h5> ספרינקלר צד בוצע</h5>
+              <h6> ספרינקלר צד בוצע</h6>
             </div>
           </div>
         </div>
@@ -325,17 +318,15 @@ function Validation() {
             />
           </div>
         </div>
-        {saved == false ? (
-          <div>
-            <button id="submitbtn" onClick={convertToPdf}>
-              שמור והורד
-            </button>
-          </div>
-        ) : (
-          <div></div>
-        )}
-        <div className="text-bottom" id="textSized">
-          <p id="textSized" dir="rtl">
+        <button
+          id="submitbtn"
+          onClick={convertToPdf}
+          disabled={!(loader === false)}
+        >
+          {loader ? <span>יורד</span> : <span>שמור והורד </span>}
+        </button>
+        <div className="text-below">
+          <p dir="rtl">
             בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי
             תקן 129/1
             <br></br>
@@ -344,15 +335,13 @@ function Validation() {
             <br></br>
             בודק מוסמך למז׳׳ח מטעם משרד הבריאות מ׳ס היתר 2108
           </p>
-          <h4 id="textSized" dir="rtl">
-            ממונה בטיחות אש בכיר
-          </h4>
-          <h3 id="textSized" dir="rtl">
+          <h4>ממונה בטיחות אש בכיר</h4>
+          <h3 dir="rtl">
             מערכת כיבוי במים (ספרינקלרים) *מזח * אספקת ציוד כיבוי אש{" "}
           </h3>
-          <h4 id="textSized" dir="ltr">
-            info@nrg-center.co.il : רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 *
-            פקס 03-9041940 * דוא׳׳ל
+          <h4 dir="rtl">
+            רח׳ גזית 9 פתח תקווה * טלפון 03-9040844 * פקס * 03-9041940 דוא׳׳ל
+            info@nrg-center.co.il
           </h4>
         </div>
       </div>
@@ -360,4 +349,4 @@ function Validation() {
   );
 }
 
-export default Validation;
+export default Test;

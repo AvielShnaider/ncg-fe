@@ -2,9 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import { supabase } from "../../supabase";
 import html2pdf from "html2pdf.js";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-import axios from "axios";
+// import html2canvas from "html2canvas";
+// import jsPDF from "jspdf";
+// import axios from "axios";
 import logo from "../../assets/logo rng_.png";
 
 import "./validation.css";
@@ -73,22 +73,32 @@ function Validation() {
 
   const formatDate = (dateString) => {
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-GB", options);
+    return new Date(dateString).toLocaleDateString("he-IL", options);
   };
 
   const convertToPdf = async () => {
+    setSaved(true);
+    const formattedDate = formatDate(selectedDate);
+    SetDate(formattedDate);
+
     await incrementCounter();
     await fetchCounter();
 
-    setSaved(true);
+    console.log(selectedDate);
 
-    const formattedDate = formatDate(selectedDate);
-    setFlagDate(true);
-    SetDate(formattedDate);
-    var elements = document.querySelectorAll("#textSized");
-    elements.forEach(function (element) {
-      element.style.fontSize = "1.2rem"; // Change this value to the desired font size
-    });
+    // setFlagDate(true);
+    console.log(saved);
+
+    console.log("after");
+    console.log(formattedDate);
+    console.log(date);
+
+    if (window.innerWidth < 500) {
+      var elements = document.querySelectorAll("#textSized");
+      elements.forEach(function (element) {
+        element.style.fontSize = "1rem"; // Change this value to the desired font size
+      });
+    }
 
     const content = contentRef.current;
     const options = {
@@ -104,6 +114,7 @@ function Validation() {
       },
     };
 
+    console.log("saved is " + saved);
     console.log(content);
 
     html2pdf().set(options).from(content).save();
@@ -139,7 +150,7 @@ function Validation() {
         <h3>טופס אישור תקינות מס ׳ {counter} </h3>
         <div className="temp-continer">
           <div className="header-form">
-            {flagDate ? (
+            {saved == true ? (
               <div
                 className="date-div"
                 style={{

@@ -13,9 +13,36 @@ const Page = () => {
 
   const [currentDate, setCurrentDate] = useState("");
 
+  const [displayText, setDisplayText] = useState("");
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // מונע מעבר לשורה חדשה ב-textarea
+      const newText = text + "\n"; // הוספת שורת מעבר לטקסט הנוכחי
+      setText(newText); // עדכון ה-state עם הטקסט החדש
+      setDisplayText(
+        newText.split("\n").map((str, index) => (
+          <React.Fragment key={index}>
+            {str}
+            <br />
+          </React.Fragment>
+        ))
+      );
+    }
+  };
+  const clearText = () => {
+    setText("");
+    setAddonText("");
+    setDisplayText("");
+  };
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
   useEffect(() => {
     const today = new Date();
-    const date = today.toLocaleDateString();
+    const date = today.toLocaleDateString("he-IL");
     setCurrentDate(date);
   }, []);
 
@@ -33,22 +60,25 @@ const Page = () => {
   };
 
   const convertToPdf = () => {
-    changeText();
+    // changeText();
     setSaved(true);
 
-    var elements = document.getElementsByClassName("text-p");
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
-    }
+    //if the screen is on mobile upscale the font size
+    if (window.innerWidth < 500) {
+      var elements = document.getElementsByClassName("text-p");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.fontSize = "1.1rem"; // Change this value to the desired font size
+      }
 
-    var elements = document.getElementsByClassName("infoSprinkel");
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.fontSize = "1.2rem"; // Change this value to the desired font size
-    }
+      var elements = document.getElementsByClassName("infoSprinkel");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.fontSize = "1.2rem"; // Change this value to the desired font size
+      }
 
-    var elements = document.getElementsByClassName("info");
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
+      var elements = document.getElementsByClassName("info");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
+      }
     }
 
     const content = contentRef.current;
@@ -71,29 +101,60 @@ const Page = () => {
     <div className="main-div" ref={contentRef} meta="UTF-8">
       <div className="continer">
         <img className="vImage" src={logo} />
-
-        {saved ? (
+        <p className="text-added"> תאריך :{currentDate} </p>
+        {/* {saved ? (
           <div className="text-finished ">
-            <p className="text-added"> תאריך {currentDate}</p>
             <p className="text-added" dir="rtl">
-              {addonText}{" "}
+              {addonText}
             </p>
           </div>
         ) : (
-          <div className="textarea-div ">
+          <div className="textarea-div">
             <textarea
               dir="rtl"
-              rows="20"
+              rows="2"
               cols="40"
+              style={{ width: "100%" }}
               id="textarea"
               onChange={(e) => {
                 setText(e.target.value);
               }}
             ></textarea>
           </div>
-        )}
+        )} */}
 
-        <div>
+        <div
+          className="textarea-WithText"
+          style={{ fontFamily: "Arial, sans-serif", margin: "20px" }}
+        >
+          {saved ? (
+            <div></div>
+          ) : (
+            <textarea
+              id="myTextarea"
+              rows="10"
+              cols="30"
+              dir="rtl"
+              placeholder="כתוב כאן..."
+              value={text}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown} // שינוי ל-onKeyDown
+              style={{ width: "100%", maxWidth: "100%", height: "150px" }}
+            />
+          )}
+          <p
+            className="textarea-addon"
+            style={{
+              marginTop: "20px",
+              wordWrap: "break-word",
+            }}
+          >
+            {displayText}
+          </p>
+          {saved ? <div></div> : <button onClick={clearText}>נקה טקסט</button>}
+        </div>
+
+        <div className="text-div">
           <p className="text-p" dir="rtl">
             בודק מוסמך ע׳׳י משרד הפנים ונציבות כבאות והצלה מס׳ היתר 12016 לפי
             תקן 129/1

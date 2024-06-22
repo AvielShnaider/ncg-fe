@@ -1,37 +1,32 @@
-<<<<<<< HEAD
-/* textarea {
-  width: 500px;
-} */
 #root {
   text-align: center;
-=======
+}
+
 .textarea-div {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 .text-finished {
-  justify-content: center;
-  align-items: center;
-  height: 530px;
->>>>>>> textFixed
+  height: 600px;
 }
-/* 
-.vImage {
-  width: 200px;
-  height: 200px;
-  justify-content: center;
-  align-items: center;
-<<<<<<< HEAD
+
+.infoSprinkel {
+  font-size: 1.5rem;
 }
-.main-div {
-  justify-content: center;
-  align-items: center;
-=======
-} */
+.info {
+  font-size: 1rem;
+}
 
 #root {
->>>>>>> textFixed
   text-align: center;
+}
+
+.textarea-addon {
+  font-size: 1.5rem;
 }
 
 .continer {
@@ -40,16 +35,23 @@
   text-align: center;
   border: 2px solid black;
 }
-<<<<<<< HEAD
 .text-finished {
   justify-content: center;
   align-items: center;
   height: 300px;
 }
-=======
 .text-p {
-  font-size: 1.9rem;
+  font-size: 1.2rem;
 }
+.text-added {
+  font-size: 1.5rem;
+  text-align: left;
+  margin-left: 20px;
+}
+.textarea-WithText {
+  height: 600px;
+}
+
 /* p {
   font-size: 1rem;
 } */
@@ -58,34 +60,13 @@
   height: 30%;
   text-align: center;
 } */
-
->>>>>>> textFixed
+/* 
 .main-div {
   text-align: center;
 }
 
-<<<<<<< HEAD
 h1 {
   font-size: 1.5rem;
-=======
-@media (max-width: 500px) {
-  .text-p {
-    font-size: 0.6rem;
-  }
-  .infoSprinkel {
-    font-size: 0.8rem;
-  }
-  .info {
-    font-size: 0.5rem;
-  }
-  .text-added {
-    font-size: 1rem;
-  }
-
-  .temp-div {
-    height: 200px;
-  }
->>>>>>> textFixed
 }
 
 .textarea-div {
@@ -103,19 +84,36 @@ h4 {
 }
 h3 {
   font-size: 1.2rem;
-}
+} */
 
 /* Media query for screens less than 500px */
 
 @media (max-width: 500px) {
-  h3 {
-    font-size: 0.8rem;
-  }
-  h4 {
+  .text-p {
     font-size: 0.6rem;
   }
-  .text2 {
-    margin-top: 80px;
-    height: 300px;
+  .infoSprinkel {
+    font-size: 0.8rem;
+  }
+  .info {
+    font-size: 0.5rem;
+  }
+  .text-added {
+    font-size: 1rem;
+  }
+  .text-div {
+    margin-top: 100px;
+  }
+
+  .temp-div {
+    height: 200px;
+  }
+
+  .textarea-WithText {
+    height: 400px;
+  }
+
+  .textarea-addon {
+    font-size: 1.2rem;
   }
 }

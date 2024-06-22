@@ -1,19 +1,36 @@
+<<<<<<< HEAD
 /* textarea {
   width: 500px;
 } */
 #root {
   text-align: center;
+=======
+.textarea-div {
+  width: 100%;
 }
 
-.vImage {
-  width: 300px;
-  height: 300px;
+.text-finished {
   justify-content: center;
   align-items: center;
+  height: 530px;
+>>>>>>> textFixed
+}
+/* 
+.vImage {
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+<<<<<<< HEAD
 }
 .main-div {
   justify-content: center;
   align-items: center;
+=======
+} */
+
+#root {
+>>>>>>> textFixed
   text-align: center;
 }
 
@@ -23,17 +40,52 @@
   text-align: center;
   border: 2px solid black;
 }
+<<<<<<< HEAD
 .text-finished {
   justify-content: center;
   align-items: center;
   height: 300px;
 }
+=======
+.text-p {
+  font-size: 1.9rem;
+}
+/* p {
+  font-size: 1rem;
+} */
+
+/* .p-div {
+  height: 30%;
+  text-align: center;
+} */
+
+>>>>>>> textFixed
 .main-div {
   text-align: center;
 }
 
+<<<<<<< HEAD
 h1 {
   font-size: 1.5rem;
+=======
+@media (max-width: 500px) {
+  .text-p {
+    font-size: 0.6rem;
+  }
+  .infoSprinkel {
+    font-size: 0.8rem;
+  }
+  .info {
+    font-size: 0.5rem;
+  }
+  .text-added {
+    font-size: 1rem;
+  }
+
+  .temp-div {
+    height: 200px;
+  }
+>>>>>>> textFixed
 }
 
 .textarea-div {

@@ -89,13 +89,13 @@ textarea {
   height: 100px;
 }
 p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 h3 {
   font-size: 0.9rem;
 }
 h4 {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 h5 {
   font-size: 0.6rem;
@@ -121,11 +121,21 @@ h5 {
     height: 100px;
   }
 
+  .temp-continer {
+    width: 350px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
   .header-form {
     flex-direction: row;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+  }
+  p {
+    font-size: 1.4rem;
   }
 
   .flex-continer {
@@ -182,6 +192,13 @@ h5 {
     display: flex;
   }
   h6 {
+    font-size: 0.6rem;
+  }
+  .text-bottom {
+    height: 200px;
+  }
+
+  h4 {
     font-size: 0.6rem;
   }
 }

@@ -67,12 +67,12 @@ const Page = () => {
     if (window.innerWidth < 500) {
       var elements = document.getElementsByClassName("text-p");
       for (var i = 0; i < elements.length; i++) {
-        elements[i].style.fontSize = "1.1rem"; // Change this value to the desired font size
+        elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
       }
 
       var elements = document.getElementsByClassName("infoSprinkel");
       for (var i = 0; i < elements.length; i++) {
-        elements[i].style.fontSize = "1.2rem"; // Change this value to the desired font size
+        elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
       }
 
       var elements = document.getElementsByClassName("info");

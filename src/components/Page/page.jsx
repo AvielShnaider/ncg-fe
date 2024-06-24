@@ -74,11 +74,6 @@ const Page = () => {
       for (var i = 0; i < elements.length; i++) {
         elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
       }
-
-      var elements = document.getElementsByClassName("info");
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
-      }
     }
 
     const content = contentRef.current;

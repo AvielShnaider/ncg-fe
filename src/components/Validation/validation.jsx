@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
+import React from "react";
+
 import SignatureCanvas from "react-signature-canvas";
 import { supabase } from "../../supabase";
 import html2pdf from "html2pdf.js";
-// import html2canvas from "html2canvas";
-// import jsPDF from "jspdf";
-// import axios from "axios";
 import logo from "../../assets/logo rng_.png";
 
 import "./validation.css";
@@ -17,9 +16,11 @@ function Validation() {
   const [flagDate, setFlagDate] = useState(false);
   const [date, SetDate] = useState("");
   const [sign, setSign] = useState();
+  const [text, setText] = useState("");
   const signatureRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState();
   const [counter, setCounter] = useState(0);
+  const [displayText, setDisplayText] = useState("");
 
   const [envURL, setEnvURL] = useState();
 
@@ -74,6 +75,28 @@ function Validation() {
   const formatDate = (dateString) => {
     const options = { day: "2-digit", month: "2-digit", year: "numeric" };
     return new Date(dateString).toLocaleDateString("he-IL", options);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // מונע מעבר לשורה חדשה ב-textarea
+      const newText = text + "\n"; // הוספת שורת מעבר לטקסט הנוכחי
+      setText(newText); // עדכון ה-state עם הטקסט החדש
+      setDisplayText(
+        newText.split("\n").map((str, index) => (
+          <React.Fragment key={index}>
+            {str}
+            <br />
+          </React.Fragment>
+        ))
+      );
+
+      console.log(text);
+      console.log(displayText);
+    }
+  };
+  const handleChange = (event) => {
+    setText(event.target.value);
   };
 
   const convertToPdf = async () => {
@@ -184,7 +207,7 @@ function Validation() {
                   type="date"
                   value={selectedDate}
                   style={{
-                    width: "150px",
+                    width: "100px",
                     textAlign: "center",
                     height: "70px",
                   }}
@@ -198,7 +221,6 @@ function Validation() {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "end",
               }}
             >
               <div className="moves-continer">
@@ -227,7 +249,7 @@ function Validation() {
                   className="form-control"
                   dir="rtl"
                 ></input>
-                <h5>דירה</h5>
+                <h5 style={{ marginLeft: "10px" }}>דירה</h5>
               </div>
             </div>
           </div>
@@ -255,13 +277,28 @@ function Validation() {
             }}
           >
             <h6>תסריט שינויים בדירה </h6>
-            <input
+            {/* <input old input 
               type="text"
               className="inputChanges"
               dir="rtl"
               id="persoInput"
               style={{ fontSize: "0.7rem", textAlign: "center" }}
-            ></input>
+            ></input> */}
+            {saved == false ? (
+              <textarea
+                id="myTextarea"
+                rows="10"
+                cols="30"
+                dir="rtl"
+                placeholder="כתוב כאן..."
+                value={text}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown} // שינוי ל-onKeyDown
+                style={{ width: "100%", maxWidth: "100%", height: "150px" }}
+              />
+            ) : (
+              <p style={{ fontSize: "1rem" }}>{displayText}</p>
+            )}
           </div>
 
           <div
@@ -320,7 +357,7 @@ function Validation() {
           </p>
           <p>שם וחתימת הלקוח</p>
         </div>{" "}
-        <div className="continer-sig">
+        <div className="continer-signature">
           <div
             style={{
               border: "2px solid black",
@@ -336,6 +373,28 @@ function Validation() {
             />
           </div>
         </div>
+        {/* <div 
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginRight: "10px",
+          }}
+        >
+          <div
+            style={{
+              border: "2px solid black",
+            }}
+          >
+            <SignatureCanvas
+              canvasProps={{
+                width: 200,
+                height: 100,
+              }}
+              className="signature-pad"
+              ref={(data) => setSign(data)}
+            />
+          </div>
+        </div> */}
         {saved == false ? (
           <div>
             <button id="submitbtn" onClick={convertToPdf}>

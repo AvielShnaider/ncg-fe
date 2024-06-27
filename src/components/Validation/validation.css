@@ -78,10 +78,10 @@ textarea {
   flex-direction: row;
 }
 
-.continer-sig {
+.continer-signature {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-left: 10%;
 }
 
 .vImage {
@@ -116,6 +116,9 @@ h5 {
     margin-bottom: 100px;
   }
 
+  .form-control {
+    width: 170px;
+  }
   .vImage {
     width: 100px;
     height: 100px;
@@ -200,5 +203,10 @@ h5 {
 
   h4 {
     font-size: 0.6rem;
+  }
+  .continer-signature {
+    display: flex;
+    justify-content: center;
+    margin-left: 20%; /* Remove the left margin for smaller screens */
   }
 }

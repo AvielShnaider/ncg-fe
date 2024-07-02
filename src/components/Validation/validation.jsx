@@ -180,12 +180,13 @@ function Validation() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  marginBottom: "30px",
                 }}
               >
                 <h4>תאריך</h4>
                 <h4
                   style={{
-                    fontSize: "20px",
+                    fontSize: "15px",
                     textAlign: "center",
                   }}
                 >

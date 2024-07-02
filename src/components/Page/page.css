@@ -1,6 +1,11 @@
 #root {
   text-align: center;
 }
+.vImage-page {
+  width: 100px;
+  height: 100px;
+  margin-top: 40px;
+}
 
 .textarea-div {
   width: 100%;
@@ -102,7 +107,9 @@ h3 {
     font-size: 1rem;
   }
   .text-div {
-    margin-top: 100px;
+    height: 150px;
+    margin-top: 50px;
+    text-align: center;
   }
 
   .temp-div {
@@ -110,7 +117,7 @@ h3 {
   }
 
   .textarea-WithText {
-    height: 400px;
+    height: 500px;
   }
 
   .textarea-addon {

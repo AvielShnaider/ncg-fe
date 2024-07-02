@@ -46,18 +46,18 @@ const Page = () => {
     setCurrentDate(date);
   }, []);
 
-  const changeText = () => {
-    // const tempText = document.getElementById("textarea").value;
-    const sentences = text.split("?");
-    const processedText = sentences.map((sentence, index) => (
-      <p className=" text-added" key={index}>
-        {sentence}
-      </p>
-    ));
-    console.log(sentences);
-    console.log(processedText);
-    setAddonText(processedText);
-  };
+  // const changeText = () => {
+  //   // const tempText = document.getElementById("textarea").value;
+  //   const sentences = text.split("?");
+  //   const processedText = sentences.map((sentence, index) => (
+  //     <p className=" text-added" key={index}>
+  //       {sentence}
+  //     </p>
+  //   ));
+  //   console.log(sentences);
+  //   console.log(processedText);
+  //   setAddonText(processedText);
+  // };
 
   const convertToPdf = () => {
     // changeText();
@@ -71,6 +71,11 @@ const Page = () => {
       }
 
       var elements = document.getElementsByClassName("infoSprinkel");
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
+      }
+
+      var elements = document.getElementsByClassName("info");
       for (var i = 0; i < elements.length; i++) {
         elements[i].style.fontSize = "1rem"; // Change this value to the desired font size
       }
@@ -95,7 +100,7 @@ const Page = () => {
   return (
     <div className="main-div" ref={contentRef} meta="UTF-8">
       <div className="continer">
-        <img className="vImage" src={logo} />
+        <img className="vImage-page" src={logo} />
         <p className="text-added"> תאריך :{currentDate} </p>
         {/* {saved ? (
           <div className="text-finished ">

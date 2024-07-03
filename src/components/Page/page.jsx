@@ -145,8 +145,10 @@ const Page = () => {
           <p
             className="textarea-addon"
             style={{
+              textAlign: "right",
               marginTop: "20px",
               wordWrap: "break-word",
+              direction: "rtl",
             }}
           >
             {displayText}

@@ -25,6 +25,14 @@
 .date-field {
   flex: 1;
   margin-right: 50px; /* Adjust the margin to increase or decrease the distance */
+  text-align: left;
+}
+
+.addrees {
+  margin-right: 10px;
+}
+.apartment {
+  margin-right: 22px;
 }
 
 .input-fields {
@@ -233,7 +241,7 @@ h5 {
   .textarea-input-continer {
     text-align: center;
     width: 100%;
-    height: 180px;
+    height: 150px;
   }
   input {
     width: 80px;
@@ -296,5 +304,12 @@ h5 {
     display: flex;
     justify-content: center;
     margin-left: 20%; /* Remove the left margin for smaller screens */
+  }
+
+  .addrees {
+    margin-right: 7px;
+  }
+  .apartment {
+    margin-right: 14px;
   }
 }

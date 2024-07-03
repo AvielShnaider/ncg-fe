@@ -220,7 +220,7 @@ function Validation() {
                 className="form-control"
                 dir="rtl"
               ></input>
-              <label style={{ marginRight: "10px" }}>כתובת</label>
+              <label className="addrees">כתובת</label>
             </div>
 
             <div className="input-field">
@@ -230,7 +230,7 @@ function Validation() {
                 className="form-control"
                 dir="rtl"
               ></input>
-              <label style={{ marginRight: "22px" }}>דירה</label>
+              <label className="apartment">דירה</label>
             </div>
           </div>
         </div>

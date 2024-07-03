@@ -119,7 +119,7 @@ function Validation() {
     if (window.innerWidth < 500) {
       var elements = document.querySelectorAll("#textSized");
       elements.forEach(function (element) {
-        element.style.fontSize = "1rem"; // Change this value to the desired font size
+        element.style.fontSize = "0.8rem"; // Change this value to the desired font size
       });
     }
 
@@ -171,90 +171,70 @@ function Validation() {
       <div className="big-continer" ref={contentRef}>
         <img className="vImage" src={logo} />
         <h3>טופס אישור תקינות מס ׳ {counter} </h3>
-        <div className="temp-continer">
-          <div className="header-form">
-            {saved == true ? (
-              <div
-                className="date-div"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  marginBottom: "30px",
-                }}
-              >
-                <h4>תאריך</h4>
-                <h4
-                  style={{
-                    fontSize: "15px",
-                    textAlign: "center",
-                  }}
-                >
-                  {date}
-                </h4>
-              </div>
-            ) : (
-              <div
-                className="date-div"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <h4>בחרו תאריך</h4>
-                <input
-                  className="input-name"
-                  type="date"
-                  value={selectedDate}
-                  style={{
-                    width: "100px",
-                    textAlign: "center",
-                    height: "70px",
-                  }}
-                  onChange={(e) => setSelectedDate(e.target.value)}
-                />
-              </div>
-            )}
 
-            <div
-              className="input-values"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <div className="moves-continer">
-                <input
-                  style={{ textAlign: "center" }}
-                  type="text"
-                  className="form-control"
-                  dir="rtl"
-                ></input>
-                <h5>שם מלא</h5>
-              </div>
+        <div className="continer-name-address">
+          {saved == true ? (
+            <div className="date-field">
+              <label
+                id="textSized"
+                style={{ marginLeft: "10px" }}
+                htmlFor="date"
+              >
+                תאריך
+              </label>
+              <label id="textSized">{date}</label>
+            </div>
+          ) : (
+            <div className="date-field">
+              <input
+                className="input-name"
+                type="date"
+                value={selectedDate}
+                style={{
+                  width: "100px",
+                  textAlign: "center",
+                  height: "70px",
+                  marginRight: "20px",
+                }}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              />
+              <label htmlFor="date">תאריך</label>
+            </div>
+          )}
 
-              <div className="moves-continer">
-                <input
-                  style={{ textAlign: "center" }}
-                  type="text"
-                  className="form-control"
-                  dir="rtl"
-                ></input>
-                <h5>כתובת</h5>
-              </div>
-              <div className="moves-continer">
-                <input
-                  style={{ textAlign: "center" }}
-                  type="text"
-                  className="form-control"
-                  dir="rtl"
-                ></input>
-                <h5 style={{ marginLeft: "10px" }}>דירה</h5>
-              </div>
+          <div className="input-fields">
+            <div className="input-field">
+              <input
+                style={{ textAlign: "center" }}
+                type="text"
+                className="form-control"
+                dir="rtl"
+              ></input>
+              <label>שם מלא</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                style={{ textAlign: "center" }}
+                type="text"
+                className="form-control"
+                dir="rtl"
+              ></input>
+              <label style={{ marginRight: "10px" }}>כתובת</label>
+            </div>
+
+            <div className="input-field">
+              <input
+                style={{ textAlign: "center" }}
+                type="text"
+                className="form-control"
+                dir="rtl"
+              ></input>
+              <label style={{ marginRight: "22px" }}>דירה</label>
             </div>
           </div>
         </div>
+
         <div className="text">
           <h4 id="textSized">
             הנדון : אישור תקינות למערכת הספרינקלרים הדירתית
@@ -268,13 +248,13 @@ function Validation() {
           <p id="textSized">. תקינות הבדיקה היא ליום הבדיקה בלבד</p>
           <p id="textSized"> .אישור זה בתוקף לשנה </p>
         </div>
-        <div className="flex-continer">
+        <div className="textarea-input-continer">
           <div
-            className="changes-input"
+            className=""
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              // alignItems: "center",
             }}
           >
             <h6>תסריט שינויים בדירה </h6>
@@ -298,7 +278,9 @@ function Validation() {
                 style={{ width: "100%", maxWidth: "100%", height: "150px" }}
               />
             ) : (
-              <p style={{ fontSize: "1rem" }}>{displayText}</p>
+              <div className="div-displayText">
+                <p style={{ fontSize: "0.9rem" }}>{displayText}</p>
+              </div>
             )}
           </div>
 
@@ -306,9 +288,8 @@ function Validation() {
             className="input-values"
             style={{
               display: "flex",
+
               flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <div className="moves-continer">
@@ -336,66 +317,39 @@ function Validation() {
             </div>
           </div>
         </div>
-        <div className="down-row">
-          <select
-            style={{
-              width: "100px",
-              textAlign: "center",
-            }}
-            dir="rtl"
-          >
-            <option value="ron">רון גרגי</option>
-            <option value="ofek">אופק גרגי</option>
-            <option value="roei">רועי גרגי</option>
-          </select>
 
-          <p
-            style={{
-              marginRight: "20px",
-            }}
-          >
-            : שם הבודק{" "}
-          </p>
-          <p>שם וחתימת הלקוח</p>
-        </div>{" "}
-        <div className="continer-signature">
-          <div
-            style={{
-              border: "2px solid black",
-            }}
-          >
-            <SignatureCanvas
-              canvasProps={{
-                width: 200,
-                height: 100,
+        <div className="container-client-sign">
+          <div className="client-field">
+            <p>: שם הבודק</p>
+            <select
+              style={{
+                width: "100px",
+                textAlign: "center",
               }}
-              className="signature-pad"
-              ref={(data) => setSign(data)}
-            />
+              dir="rtl"
+            >
+              <option value="ron">רון גרגי</option>
+              <option value="ofek">אופק גרגי</option>
+              <option value="roei">רועי גרגי</option>
+            </select>
+          </div>
+
+          <div className="text-and-sign">
+            <p style={{ marginRight: "40px" }}>שם וחתימת הלקוח</p>
+            <div className="container-signature">
+              <div className="signature">
+                <SignatureCanvas
+                  canvasProps={{
+                    width: 200,
+                    height: 100,
+                  }}
+                  ref={(data) => setSign(data)}
+                />
+              </div>
+            </div>
           </div>
         </div>
-        {/* <div 
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            marginRight: "10px",
-          }}
-        >
-          <div
-            style={{
-              border: "2px solid black",
-            }}
-          >
-            <SignatureCanvas
-              canvasProps={{
-                width: 200,
-                height: 100,
-              }}
-              className="signature-pad"
-              ref={(data) => setSign(data)}
-            />
-          </div>
-        </div> */}
+
         {saved == false ? (
           <div>
             <button id="submitbtn" onClick={convertToPdf}>

@@ -12,6 +12,37 @@
   text-align: center;
 }
 
+.continer-name-address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.date-field {
+  flex: 1;
+  margin-right: 50px; /* Adjust the margin to increase or decrease the distance */
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 50px;
+  flex: 1;
+}
+
+.input-field {
+  margin-bottom: 10px; /* Adjust the margin to increase or decrease the distance */
+}
+
+input {
+  margin-right: 10px;
+}
+
 temp-continer {
   width: 350px;
   height: 150px;
@@ -27,6 +58,54 @@ temp-continer {
   height: 100%;
 }
 
+.container-client-sign {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.client-field {
+  flex: 1;
+  margin-right: auto; /* Pushes the client field to the left */
+}
+
+.text-and-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns the text and signature to the right */
+  flex: 1;
+
+  margin-right: 20%; /* Pushes the text and signature to the right */
+}
+
+.container-signature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Adds space between text and signature */
+}
+
+.signature {
+  border: 2px solid black;
+  width: 200px;
+  height: 100px;
+}
+
+.date-continer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Aligns items to the start (left side) */
+  align-items: center;
+  /* height: 100%;
+  width: 100%;
+   */
+  width: 400px;
+  padding-left: 20px;
+}
+
 .header-form > * {
   margin-left: 1%;
 }
@@ -36,15 +115,19 @@ temp-continer {
 .input-rows > * {
   margin-left: 10%;
 }
-.input-rows {
+/* .input-rows {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-}
+} */
 
 .input-values > * {
   margin-left: 30%;
+}
+
+.textarea-input-continer > * {
+  margin-left: 10px;
 }
 
 .moves-continer {
@@ -60,10 +143,12 @@ temp-continer {
 textarea {
   resize: none;
 }
-.flex-continer {
+.textarea-input-continer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 250px;
+  margin-top: 30px;
 }
 
 .inputChanges {
@@ -116,6 +201,10 @@ h5 {
     margin-bottom: 100px;
   }
 
+  .text-and-sign {
+    margin-right: 60px;
+  }
+
   .form-control {
     width: 170px;
   }
@@ -141,10 +230,10 @@ h5 {
     font-size: 1.4rem;
   }
 
-  .flex-continer {
-    margin-top: 50px;
+  .textarea-input-continer {
     text-align: center;
     width: 100%;
+    height: 180px;
   }
   input {
     width: 80px;
@@ -158,7 +247,6 @@ h5 {
   .changes-input {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   .inputChanges {
     align-self: start;
@@ -170,10 +258,10 @@ h5 {
     margin-bottom: 15px;
   }
 
-  .text {
+  /* .text {
     height: 150px;
     margin-top: 40px;
-  }
+  } */
 
   .text2 {
     height: 200px;

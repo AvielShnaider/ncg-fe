@@ -9,6 +9,7 @@ const Page = () => {
   const [text, setText] = useState("");
   const [saved, setSaved] = useState(false);
   const [addonText, setAddonText] = useState("");
+  const [selectedPerson, setSelectedPerson] = useState("רון גרגי");
   const contentRef = useRef(null);
 
   const [currentDate, setCurrentDate] = useState("");
@@ -30,6 +31,7 @@ const Page = () => {
       );
     }
   };
+
   const clearText = () => {
     setText("");
     setAddonText("");
@@ -62,6 +64,7 @@ const Page = () => {
   const convertToPdf = () => {
     // changeText();
     setSaved(true);
+    console.log(selectedPerson);
 
     //if the screen is on mobile upscale the font size
     if (window.innerWidth < 500) {
@@ -120,10 +123,10 @@ const Page = () => {
                 setText(e.target.value);
               }}
             ></textarea>
-          </div>
+          </div> 
         )} */}
 
-        <div
+        <divs
           className="textarea-WithText"
           style={{ fontFamily: "Arial, sans-serif", margin: "20px" }}
         >
@@ -154,7 +157,45 @@ const Page = () => {
             {displayText}
           </p>
           {saved ? <div></div> : <button onClick={clearText}>נקה טקסט</button>}
-        </div>
+        </divs>
+
+        {saved ? (
+          <p dir="rtl"> על החתום: {selectedPerson}</p>
+        ) : (
+          <div className="client-field">
+            <p>: שם הבודק</p>
+            <select
+              value={selectedPerson}
+              onChange={(e) => setSelectedPerson(e.target.value)}
+              style={{
+                width: "100px",
+                textAlign: "center",
+              }}
+              dir="rtl"
+            >
+              <option value="רון גרגי">רון גרגי</option>
+              <option value="אופק גרגי">אופק גרגי</option>
+              <option value="רועי גרגי">רועי גרגי</option>
+            </select>
+          </div>
+        )}
+        {/* 
+        <div className="client-field">
+          <p>: שם הבודק</p>
+          <select
+            value={selectedPerson}
+            onChange={(e) => setSelectedPerson(e.target.value)}
+            style={{
+              width: "100px",
+              textAlign: "center",
+            }}
+            dir="rtl"
+          >
+            <option value="רון גרגי">רון גרגי</option>
+            <option value="אופק גרגי">אופק גרגי</option>
+            <option value="רועי גרגי">רועי גרגי</option>
+          </select>
+        </div> */}
 
         <div className="text-div">
           <p className="text-p" dir="rtl">

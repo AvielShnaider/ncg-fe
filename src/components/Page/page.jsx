@@ -126,7 +126,7 @@ const Page = () => {
           </div> 
         )} */}
 
-        <divs
+        <div
           className="textarea-WithText"
           style={{ fontFamily: "Arial, sans-serif", margin: "20px" }}
         >
@@ -157,7 +157,7 @@ const Page = () => {
             {displayText}
           </p>
           {saved ? <div></div> : <button onClick={clearText}>נקה טקסט</button>}
-        </divs>
+        </div>
 
         {saved ? (
           <p dir="rtl"> על החתום: {selectedPerson}</p>

@@ -172,8 +172,34 @@ function Validation() {
         <img className="vImage" src={logo} />
         <h3>טופס אישור תקינות מס ׳ {counter} </h3>
 
+        {saved == true ? (
+          <div className="date-field">
+            <label id="textSized" style={{ marginLeft: "10px" }} htmlFor="date">
+              תאריך
+            </label>
+            <label style={{ marginLeft: "20px" }} id="textSized">
+              {date}
+            </label>
+          </div>
+        ) : (
+          <div className="date-field">
+            <input
+              className="input-name"
+              type="date"
+              value={selectedDate}
+              style={{
+                width: "100px",
+                textAlign: "center",
+                height: "70px",
+                marginLeft: "40px",
+              }}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
+            <label htmlFor="date">תאריך</label>
+          </div>
+        )}
         <div className="continer-name-address">
-          {saved == true ? (
+          {/* {saved == true ? (
             <div className="date-field">
               <label
                 id="textSized"
@@ -200,7 +226,7 @@ function Validation() {
               />
               <label htmlFor="date">תאריך</label>
             </div>
-          )}
+          )} */}
 
           <div className="input-fields">
             <div className="input-field">

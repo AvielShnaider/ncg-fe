@@ -160,7 +160,16 @@ const Page = () => {
         </div>
 
         {saved ? (
-          <p dir="rtl"> על החתום: {selectedPerson}</p>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "1.3rem",
+            }}
+            dir="rtl"
+          >
+            {" "}
+            על החתום: {selectedPerson}
+          </p>
         ) : (
           <div className="client-field">
             <p>: שם הבודק</p>
@@ -170,6 +179,7 @@ const Page = () => {
               style={{
                 width: "100px",
                 textAlign: "center",
+                fontSize: "1rem",
               }}
               dir="rtl"
             >

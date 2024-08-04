@@ -119,7 +119,7 @@ function Validation() {
     if (window.innerWidth < 500) {
       var elements = document.querySelectorAll("#textSized");
       elements.forEach(function (element) {
-        element.style.fontSize = "0.8rem"; // Change this value to the desired font size
+        element.style.fontSize = "0.7rem"; // Change this value to the desired font size
       });
     }
 

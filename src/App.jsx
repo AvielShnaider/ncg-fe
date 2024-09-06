@@ -7,13 +7,13 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/page" element={<Page />} />
 
           <Route path="/" element={<Validation />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }

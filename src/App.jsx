@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<Validation />} />
         </Routes>
       </BrowserRouter> */}
+      <div>אתה רוצה את האתר , אתה מוזמן להתקשר למס׳ הבא : 050-544-2056</div>
     </div>
   );
 }
